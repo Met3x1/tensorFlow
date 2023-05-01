@@ -8,7 +8,7 @@ input_dir = "C:\\Users\\mbali\\Desktop\\school\\kasv\\programovanie" \
 
 # Set the path to the directory where you want to save the output images and annotations
 output_dir = "C:\\Users\\mbali\\Desktop\\school\\kasv\\programovanie\\" \
-             "had\\potholeDetectionTest\\photos\\train fotky output"
+             "had\\potholeDetectionTest\\photos\\56x56 train\\pothole"
 
 # Set the path to the annotations file
 annotations_file = "C:\\Users\\mbali\\Desktop\\school\\kasv\\programovanie" \
@@ -39,10 +39,10 @@ for filename in os.listdir(input_dir):
             if len(coords) != 4:
                 continue  # Skip this annotation if it doesn't have 4 coordinates
             x1, y1, x2, y2 = coords
-            x1 = int(x1 * 28 / input_image.size[0])
-            y1 = int(y1 * 28 / input_image.size[1])
-            x2 = int(x2 * 28 / input_image.size[0])
-            y2 = int(y2 * 28 / input_image.size[1])
+            x1 = int(x1 * 56 / input_image.size[0])
+            y1 = int(y1 * 56 / input_image.size[1])
+            x2 = int(x2 * 56 / input_image.size[0])
+            y2 = int(y2 * 56 / input_image.size[1])
             scaled_annotations.append((x1, y1, x2, y2))
 
         # Save the output image
