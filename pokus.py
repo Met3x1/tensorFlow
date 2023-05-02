@@ -2,14 +2,14 @@ import tensorflow as tf
 import matplotlib.pyplot as plt
 
 train_dir = "C:\\Users\\mbali\\Desktop\\school\\kasv\\programovanie" \
-            "\\had\\potholeDetectionTest\\photos\\56x56 test"
+            "\\had\\potholeDetectionTest\\photos\\72x72 test"
 test_dir = "C:\\Users\\mbali\\Desktop\\school\\kasv\\programovanie" \
-           "\\had\\potholeDetectionTest\\photos\\56x56 train"
+           "\\had\\potholeDetectionTest\\photos\\72x72 train"
 
 # Load the images from the directories and normalize their pixel values
 train_dataset = tf.keras.preprocessing.image_dataset_from_directory(
     train_dir,
-    image_size=(56, 56),
+    image_size=(72, 72),
     batch_size=32
 )
 train_images, train_labels = next(iter(train_dataset))
@@ -17,7 +17,7 @@ train_images = train_images / 255.0
 
 test_dataset = tf.keras.preprocessing.image_dataset_from_directory(
     test_dir,
-    image_size=(56, 56),
+    image_size=(72, 72),
     batch_size=32
 )
 test_images, test_labels = next(iter(test_dataset))
@@ -35,7 +35,7 @@ test_images = test_images / 255.0
 
 #setup modelu
 model = tf.keras.Sequential([
-    tf.keras.layers.experimental.preprocessing.Rescaling(1./255, input_shape=(56, 56, 3)),
+    tf.keras.layers.experimental.preprocessing.Rescaling(1./255, input_shape=(72, 72, 3)),
     tf.keras.layers.Flatten(),
     tf.keras.layers.Dense(128, activation='relu'),
     tf.keras.layers.Dense(10)
